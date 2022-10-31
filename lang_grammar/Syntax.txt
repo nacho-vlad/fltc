@@ -1,0 +1,31 @@
+Syntax
+------
+
+<typeAtom> ::= i32 | u32 | char | bool
+<type> ::= <typeAtom> | [<typeAtom>]
+
+<program> ::= <stmtList>
+<block> ::= { <stmtList> }
+<stmtList> ::= <stmt><stmtList> | <stmt>
+<stmt> ::= <ifStmt> | <forStmt> | <declStmt> | <assignStmt> | <inStmt> | <outStmt>
+<ifStmt> ::= if <expr> <block> | if <expr> <block> else <block>
+<forStmt> ::= for <identifier> in <expr> <blocK>
+<declStmt> ::= let <identifier>: <type> = <expr>;
+<assignStmt> ::= <identifier> = <expr>
+<inStmt> ::= in!(<identifier>)
+<outStmt> ::= out!(<expr>)
+
+<expr> ::= <arithExpr> | <booleanExpr>
+<arithAtom> ::= <identifier> | <number>
+<arithExpr> ::= <arithAtom> + <arithExpr> | <mulExpr>
+<mulExpr> ::= <arithAtom> * <mulExpr> | <term>
+<term> ::= <arithAtom> | ( <arithExpr> )
+
+<relationalOp> ::= < | <= | == | >= | >
+<relationalExpr> ::= <arithExpr> <relationalOp> <arithExpr>
+
+<boolAtom> ::= <identifier> | <boolean> | <relationalExpr>
+<orExpr> ::= <boolAtom> || <booleanExpr> | <andExpr>
+<andExpr> ::= <boolAtom> && <andExpr> | <boolTerm>
+<boolTerm> ::= <boolAtom> | ( <booleanExpr> ) | !<boolTerm>
+<booleanExpr> ::= <orExpr> | <andExpr> | <relationalExpr>
