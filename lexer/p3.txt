@@ -1,0 +1,8 @@
+let arr: [i64];
+let s: i64 = 0;
+
+for x in arr {
+   s += x;
+}
+
+return s;

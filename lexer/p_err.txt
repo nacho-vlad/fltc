@@ -1,0 +1,7 @@
+let x: u8;
+   
+input!(x);
+
+2fi x > 0 {
+   &retrn true;
+}
